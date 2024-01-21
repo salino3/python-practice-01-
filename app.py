@@ -7,8 +7,12 @@ init(autoreset=True)
 
 web_site = "https://www.vulnhub.com"
 
-result = requests.get(web_site)
-content = result.text
+try:
+    result = requests.get(web_site)
+    result.raise_for_status() # Raises an exception in case of HTTP error
+    content = result.text
+except requests.exceptions.RequestException as e:
+    print(f"Error at analyze the solution: {e}")
 
 # print(content)
 
@@ -56,4 +60,10 @@ if exist_noob == True:
     print("answer: " + color_yellow + "There isn't new machine")
 else:
     print("answer: " + color_green + "New Machine!")
+
+#######
+    
+with open('machine_list.txt', 'w') as file:
+    for machine in final_machine:
+        file.write(machine + '\n')
 
