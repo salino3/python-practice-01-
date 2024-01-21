@@ -48,12 +48,12 @@ for a in final_machine:
         break
 
 
-color_green = Fore.YELLOW
-color_yellow = Fore.GREEN
+color_green = Fore.GREEN
+color_yellow = Fore.YELLOW
 
 
 if exist_noob == True:
-    print("answer: " + color_green + "There isn't new machine")
+    print("answer: " + color_yellow + "There isn't new machine")
 else:
-    print(color_yellow + "New Machine!")
+    print("answer: " + color_green + "New Machine!")
 
